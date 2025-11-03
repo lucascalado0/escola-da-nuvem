@@ -13,4 +13,4 @@ comissao = totalDeVendas * 0.15
 
 salarioTotal = salarioFixo + comissao
 
-print(f"Salário total de {nomeVendedor}: R${comissao:.2f}")
+print(f"Salário total de {nomeVendedor}: R${salarioTotal:.2f}")
