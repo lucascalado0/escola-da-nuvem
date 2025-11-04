@@ -24,43 +24,35 @@ Desenvolva uma calculadora em Python que realize as quatro operações básicas 
 7. Quando uma operação é concluída com sucesso, exiba o resultado e encerre o programa.
 """
 
-while True: 
+while True:
     try:
         numero1 = float(input("Informe o primeiro valor: "))
-        numero2 = float(input("Informe o segundo valor"))
-    
+        numero2 = float(input("Informe o segundo valor: "))
     except ValueError:
-        print("Entrada inválida. Por favor, digite apenas números.")
-        continue    
+        print("Erro: Entrada inválida. Por favor, digite apenas números.\n")
+        continue 
 
+    operacao = input("Informe a operação que deseja realizar (+, -, *, /): ")
 
-    operacao = input("Informe a operação que deseja realizar(+, -, *, /): ")
-    
-    if operacao in ["+", "-", "*", "/"]:
-        break
-
-    if operacao == "+":
-        print("Operação desejada: Adição")
-        print("Resultado : " + numero1 + numero2)
-    elif operacao == "-":
-        print("Operação desejada: Subtração")
-        print("Resultado: " + numero1 - numero2)
-    elif operacao == "*":
-        print("Operação desejada: Multiplicação")
-        print("Resultado: " + numero1 * numero2)
-    elif operacao == "/":
-        print("Operação desejada: Divisão")
-        print("Resultado: " + numero1 / numero2)
-        try:
+    try:
+        if operacao == "+":
+            resultado = numero1 + numero2
+            print("Operação desejada: Adição")
+        elif operacao == "-":
+            resultado = numero1 - numero2
+            print("Operação desejada: Subtração")
+        elif operacao == "*":
+            resultado = numero1 * numero2
+            print("Operação desejada: Multiplicação")
+        elif operacao == "/":
             resultado = numero1 / numero2
-        except ZeroDivisionError:
-            print("Erro: divisão por zero não é permitida.")
+            print("Operação desejada: Divisão")
+        else:
+            print("Erro: Operação inválida. Use apenas +, -, * ou /.\n")
             continue  
-    else:
-        print("Operação inválida. Use apenas +, -, * ou /.")
+    except ZeroDivisionError:
+        print("Erro: Divisão por zero não é permitida.\n")
         continue  
-    
 
-    
     print(f"O resultado de {numero1} {operacao} {numero2} é: {resultado}")
-    break  
+    break
